@@ -1,0 +1,14 @@
+<ion-view>
+  <ion-nav-title>{{ show.name }}</ion-nav-title>
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <img class="center-block" ng-src="{{ show.image }}">
+      </ion-item>
+    </ion-list>
+    <ion-list ng-repeat="season in seasons">
+      <ion-item class="item-divider">{{ season.title }}</ion-item>
+      <ion-item ng-repeat="episode in season.episodes" ui-sref="episode({show: slug, season: episode.season, episode: episode.episode})">{{ episode.title }}</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

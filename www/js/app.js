@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('streamy', ['ionic', 'ion-sticky', 'streamy.controllers', 'streamy.services', 'streamy.filters']);
 
-app.run(function($ionicPlatform) {
+app.run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,4 +21,28 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
+});
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+  $stateProvider
+
+  .state('shows', {
+    url: '/shows',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeCtrl'
+  })
+
+  .state('detail', {
+    url: '/shows/:show',
+    templateUrl: 'templates/show.html',
+    controller: 'ShowCtrl'
+  })
+
+  .state('episode', {
+    url: '/shows/:show/:season/:episode',
+    templateUrl: 'templates/episode.html',
+    controller: 'EpisodeCtrl'
+  });
+
+  $urlRouterProvider.otherwise('/shows');
 });
