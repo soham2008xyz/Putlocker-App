@@ -21,6 +21,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ion-sticky/ion-sticky.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -34,7 +35,7 @@
   <body ng-app="streamy">
 
     <ion-pane ng-controller="HomeCtrl">
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-positive">
         <h1 class="title">Streamy</h1>
       </ion-header-bar>
       <div class="bar item-input-inset bar-subheader">
@@ -43,7 +44,7 @@
           <input type="search" placeholder="Filter" ng-model="term">
         </label>
       </div>
-      <ion-content class="has-subheader">
+      <ion-content class="has-subheader" ion-sticky ion-sticky-class="positive">
         <ion-list ng-repeat="group in groups" ng-if="(group.shows | search: term).length > 0">
           <ion-item class="item-divider">{{ group.title }}</ion-item>
           <ion-item ng-repeat="item in group.shows | search: term">
