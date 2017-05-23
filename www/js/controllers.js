@@ -59,6 +59,7 @@ function EpisodeController($scope, $stateParams, Putlocker) {
       aspectratio: '16:9',
       primary: 'html5'
     });
+    window.plugins.plugins.insomnia.keepAwake();
   }, function (error) {
     console.error(error);
   });
